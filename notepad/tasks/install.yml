@@ -1,0 +1,12 @@
+---
+- name: Check if Notepad++ is installed
+  win_package:
+    name: "Notepad++"
+  register: notepadpp_installed
+  ignore_errors: true
+
+- name: Install Notepad++ if not present
+  win_package:
+    path: "{{ notepadpp_installer_path }}"
+    arguments: "/S"  # silent install
+  when: notepadpp_installed is not defined or not notepadpp_installed

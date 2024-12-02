@@ -1,0 +1,12 @@
+---
+- name: Check if Notepad++ is installed
+  win_package:
+    name: "Notepad++"
+  register: notepadpp_installed
+  ignore_errors: true
+
+- name: Uninstall Notepad++ if installed
+  win_package:
+    name: "Notepad++"
+    state: absent
+  when: notepadpp_installed is defined and notepadpp_installed

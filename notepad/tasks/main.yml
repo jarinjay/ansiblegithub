@@ -1,0 +1,12 @@
+---
+- name: Install Notepad++
+  include_tasks: install.yml
+  when: install | default(true)
+
+- name: Uninstall Notepad++
+  include_tasks: uninstall.yml
+  when: uninstall | default(false)
+
+- name: Upgrade Notepad++
+  include_tasks: upgrade.yml
+  when: upgrade | default(false)

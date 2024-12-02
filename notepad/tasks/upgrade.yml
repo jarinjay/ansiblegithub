@@ -1,0 +1,17 @@
+---
+- name: Check if Notepad++ is installed
+  win_package:
+    name: "Notepad++"
+  register: notepadpp_installed
+  ignore_errors: true
+
+- name: Uninstall Notepad++ for upgrade
+  win_package:
+    name: "Notepad++"
+    state: absent
+  when: notepadpp_installed is defined and notepadpp_installed
+
+- name: Install new version of Notepad++
+  win_package:
+    path: "{{ notepadpp_installer_path }}"
+    arguments: "/S"  # silent install
