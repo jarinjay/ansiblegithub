@@ -1,1 +1,3 @@
 https://galaxy.ansible.com/ui/repo/published/ansible/windows/?extIdCarryOver=true&sc_cid=701f2000001OH7YAAW
+
+https://github.com/AlbanAndrieu/ansible-windows/blob/master/files/ConfigureRemotingForAnsible.ps1
