@@ -1,0 +1,21 @@
+---
+- name: Ensure Notepad++ is managed
+  block:
+    - name: "Check current Notepad++ installation"
+      win_package:
+        name: "{{ notepadpp_product_name }}"
+      register: notepadpp_info
+
+    - name: "Install Notepad++"
+      include_tasks: install.yml
+      when: notepadpp_state == "present" and notepadpp_info.exists == False
+
+    - name: "Uninstall Notepad++"
+      include_tasks: uninstall.yml
+      when: notepadpp_state == "absent" and notepadpp_info.exists == True
+
+    - name: "Upgrade Notepad++"
+      include_tasks: upgrade.yml
+      when: notepadpp_state == "latest"
+  vars:
+    notepadpp_state: "present"  # Change this externally to "absent" or "latest" as needed.

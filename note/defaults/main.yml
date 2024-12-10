@@ -1,0 +1,7 @@
+---
+notepadpp_version: "8.5.7"
+notepadpp_installer_url: "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v{{ notepadpp_version }}/npp.{{ notepadpp_version }}.Installer.x64.exe"
+
+# The product ID or display name used by win_package to identify the installed application.
+# This can vary depending on the installer. Below is a commonly known display name.
+notepadpp_product_name: "Notepad++ (64-bit x64)"

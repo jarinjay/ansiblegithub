@@ -1,0 +1,12 @@
+---
+- name: "Download and install Notepad++"
+  win_package:
+    path: "{{ notepadpp_installer_url }}"
+    product_id: "{{ notepadpp_product_name }}"
+    state: present
+    arguments: "/S"   # Silent installation argument for Notepad++ installer
+  register: install_result
+
+- name: "Debug installation result"
+  debug:
+    var: install_result

@@ -1,0 +1,8 @@
+---
+- name: Test Notepad++ role in check mode
+  hosts: windows
+  gather_facts: no
+  vars:
+    notepadpp_state: "present"
+  roles:
+    - role: notepadpp

@@ -1,0 +1,12 @@
+---
+- name: "Upgrade Notepad++ to latest version"
+  win_package:
+    path: "{{ notepadpp_installer_url }}"
+    product_id: "{{ notepadpp_product_name }}"
+    state: latest
+    arguments: "/S"
+  register: upgrade_result
+
+- name: "Debug upgrade result"
+  debug:
+    var: upgrade_result

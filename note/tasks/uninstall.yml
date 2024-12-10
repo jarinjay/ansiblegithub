@@ -1,0 +1,10 @@
+---
+- name: "Uninstall Notepad++"
+  win_package:
+    name: "{{ notepadpp_product_name }}"
+    state: absent
+  register: uninstall_result
+
+- name: "Debug uninstall result"
+  debug:
+    var: uninstall_result
